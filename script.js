@@ -157,13 +157,33 @@ function setupWebsiteBuilder() {
 
     status.textContent = "NEXORA is generating your website…";
 
-    setTimeout(() => {
-      generatedHtml = createGeneratedWebsite(data);
+    const generateOnServer = async () => {
+      try {
+        const response = await fetch("/api/generate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+
+        if (!response.ok) throw new Error("API unavailable");
+
+        const payload = await response.json();
+        if (!payload.ok || !payload.html) throw new Error("Invalid API response");
+
+        return payload.html;
+      } catch (error) {
+        // GitHub Pages has no serverless API, so keep the prototype fallback.
+        return createGeneratedWebsite(data);
+      }
+    };
+
+    generateOnServer().then((html) => {
+      generatedHtml = html;
       preview.srcdoc = generatedHtml;
       result.hidden = false;
       status.textContent = "Website generated successfully.";
       result.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 450);
+    });
   });
 
   downloadButton.addEventListener("click", () => {
