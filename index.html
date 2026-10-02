@@ -21,6 +21,7 @@
     </a>
 
     <nav class="nav-links">
+      <a href="#builder">Build Website</a>
       <a href="#solutions">Solutions</a>
       <a href="#how">How it works</a>
       <a href="#pricing">Pricing</a>
@@ -158,6 +159,86 @@
       <b>Brokerages</b>
       <b>Channel Partners</b>
       <b>Real Estate Teams</b>
+    </section>
+
+    <section id="builder" class="section builder-section">
+      <div class="builder-shell">
+        <div class="builder-copy">
+          <div class="eyebrow"><span class="pulse"></span> NEXORA WEBSITE BUILDER</div>
+          <h2>Build your business website automatically.</h2>
+          <p>
+            Enter your business details once. NEXORA generates a ready-to-preview
+            website instantly. No coding required.
+          </p>
+          <div class="builder-points">
+            <span>✓ Automatic layout</span>
+            <span>✓ Mobile-ready</span>
+            <span>✓ WhatsApp contact</span>
+            <span>✓ Instant preview</span>
+          </div>
+        </div>
+
+        <form id="siteBuilderForm" class="builder-form">
+          <div class="form-head">
+            <span>01</span>
+            <b>Business details</b>
+          </div>
+
+          <label>
+            Business name
+            <input id="businessName" name="businessName" type="text" placeholder="e.g. Sharma Properties" required>
+          </label>
+
+          <label>
+            Business type
+            <select id="businessType" name="businessType">
+              <option>Real Estate</option>
+              <option>Property Dealer</option>
+              <option>Builder</option>
+              <option>Brokerage</option>
+              <option>Other Business</option>
+            </select>
+          </label>
+
+          <label>
+            Location
+            <input id="businessLocation" name="businessLocation" type="text" placeholder="e.g. Thane, Maharashtra" required>
+          </label>
+
+          <label>
+            WhatsApp number
+            <input id="businessWhatsapp" name="businessWhatsapp" type="tel" placeholder="e.g. 9876543210" required>
+          </label>
+
+          <label>
+            Main service
+            <input id="businessService" name="businessService" type="text" placeholder="e.g. Residential properties">
+          </label>
+
+          <label>
+            Short description
+            <textarea id="businessDescription" name="businessDescription" rows="3" placeholder="Tell customers what your business offers..."></textarea>
+          </label>
+
+          <button class="btn btn-primary btn-large full" type="submit">
+            Generate My Website <span>→</span>
+          </button>
+
+          <p id="builderStatus" class="builder-status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <div id="builderResult" class="builder-result" hidden>
+        <div class="builder-result-head">
+          <div>
+            <div class="eyebrow">02 · GENERATED PREVIEW</div>
+            <h3>Your website is ready to preview.</h3>
+          </div>
+          <button id="downloadWebsite" class="btn btn-ghost" type="button">Download Website</button>
+        </div>
+
+        <iframe id="websitePreview" title="Generated website preview" class="website-preview"></iframe>
+      </div>
     </section>
 
     <section id="solutions" class="section">
