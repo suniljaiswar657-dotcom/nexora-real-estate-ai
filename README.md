@@ -1,49 +1,33 @@
-# NEXORA — Real Estate AI
+# NEXORA Real Estate AI
 
-NEXORA is an AI-powered business automation website for real estate businesses.
+NEXORA is a real-estate-focused AI website automation product.
 
-## What NEXORA Offers
+## Current architecture
 
-- WhatsApp lead capture
-- AI lead qualification
-- Real estate CRM
-- Follow-up workflow
-- Lead pipeline management
-- Campaign lead routing
-- Business dashboard
-- Custom automation systems
+- Static landing page
+- Automatic website builder UI
+- Serverless website-generation API at `/api/generate.js`
+- Vercel-ready configuration
+- Razorpay intentionally excluded for now
 
-## Starter Packages
+## Target customer flow
 
-### Starter Lead Setup
-₹7,999/month
+Customer → Build My Website → Business details → Generate → Preview → Publish → Live URL
 
-### Real Estate AI Growth
-₹14,999/month
+The current API generates the website HTML. Live publishing requires connecting a hosting/deployment account; no secret keys are stored in this repository.
 
-### Custom Scale System
-Custom pricing
+## Local/API test
 
-## Website Files
+POST JSON to `/api/generate`:
 
-- `index.html` — Website structure
-- `styles.css` — Design and responsive layout
-- `script.js` — WhatsApp buttons and website interactions
+```json
+{
+  "businessName": "Sharma Properties",
+  "businessType": "Real Estate",
+  "businessLocation": "Thane, Maharashtra",
+  "businessWhatsapp": "9876543210",
+  "businessService": "Residential Properties",
+  "businessDescription": "Helping buyers and sellers find suitable properties."
+}
+```
 
-## WhatsApp
-
-All website WhatsApp buttons are connected to the NEXORA WhatsApp Business number configured in `script.js`.
-
-## Deployment
-
-This website can be deployed using:
-
-- GitHub Pages
-- Netlify
-- Vercel
-
-## Business Goal
-
-NEXORA helps real estate businesses organise enquiries, qualify leads and manage follow-ups through a structured AI-assisted workflow.
-
-© NEXORA
